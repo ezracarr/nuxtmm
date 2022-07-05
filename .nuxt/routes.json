@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Home-id",
+    "path": "/Home/:id?",
+    "component": "/Users/andrewfink/code/meetupmarket/pages/Home/_id.vue",
+    "chunkName": "pages/Home/_id"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/andrewfink/code/meetupmarket/pages/index.vue",
+    "chunkName": "pages/index"
+  }
+]
