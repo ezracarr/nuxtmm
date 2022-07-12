@@ -6,6 +6,10 @@ import NuxtError from '../layouts/error.vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
+import '../node_modules/@nuxtjs/tailwindcss/dist/runtime/tailwind.css'
+
+import '../assets/sass/app.scss'
+
 import _6f6c098b from '../layouts/default.vue'
 
 const layouts = { "_default": sanitizeComponent(_6f6c098b) }
