@@ -1,5 +1,12 @@
 [
   {
+    "name": "search",
+    "path": "/search",
+    "component": "/Users/andrewfink/code/meetupmarket/pages/search.vue",
+    "chunkName": "pages/search",
+    "_name": "_c3fef008"
+  },
+  {
     "name": "Home-id",
     "path": "/Home/:id?",
     "component": "/Users/andrewfink/code/meetupmarket/pages/Home/_id.vue",
