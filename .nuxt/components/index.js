@@ -1,5 +1,11 @@
 export { default as HomeCard } from '../../components/HomeCard.vue'
 export { default as HomeRow } from '../../components/HomeRow.vue'
+export { default as PropertyDescription } from '../../components/PropertyDescription.vue'
+export { default as PropertyDetails } from '../../components/PropertyDetails.vue'
+export { default as PropertyGallery } from '../../components/PropertyGallery.vue'
+export { default as PropertyHost } from '../../components/PropertyHost.vue'
+export { default as PropertyMap } from '../../components/PropertyMap.vue'
+export { default as PropertyReviews } from '../../components/PropertyReviews.vue'
 export { default as ShortText } from '../../components/ShortText.vue'
 
 // nuxt/nuxt.js#8607
