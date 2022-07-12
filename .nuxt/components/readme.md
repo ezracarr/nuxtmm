@@ -7,4 +7,5 @@ You can directly use them in pages and other components without the need to impo
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
 - `<HomeCard>` | `<home-card>` (components/HomeCard.vue)
+- `<HomeRow>` | `<home-row>` (components/HomeRow.vue)
 - `<ShortText>` | `<short-text>` (components/ShortText.vue)

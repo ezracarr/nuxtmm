@@ -2,6 +2,9 @@
   "HomeCard": {
     "description": "Auto imported from components/HomeCard.vue"
   },
+  "HomeRow": {
+    "description": "Auto imported from components/HomeRow.vue"
+  },
   "ShortText": {
     "description": "Auto imported from components/ShortText.vue"
   }
