@@ -3,21 +3,18 @@
     "name": "search",
     "path": "/search",
     "component": "/Users/andrewfink/code/meetupmarket/pages/search.vue",
-    "chunkName": "pages/search",
-    "_name": "_c3fef008"
+    "chunkName": "pages/search"
   },
   {
     "name": "Home-id",
     "path": "/Home/:id?",
     "component": "/Users/andrewfink/code/meetupmarket/pages/Home/_id.vue",
-    "chunkName": "pages/Home/_id",
-    "_name": "_006d1a04"
+    "chunkName": "pages/Home/_id"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/andrewfink/code/meetupmarket/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_5a65372e"
+    "chunkName": "pages/index"
   }
 ]
