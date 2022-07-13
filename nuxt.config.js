@@ -16,8 +16,11 @@ export default {
         prefetchLinks: false,
     },
     plugins:[ '~/plugins/maps.client', '~/plugins/dataApi', '~/plugins/auth.client' ],
-    modules:['~/modules/auth', '~/modules/algolia'],
-    buildModules:['@nuxtjs/tailwindcss'],
+    modules:['~/modules/auth', '~/modules/algolia', '~/modules/cloudinary', '@nuxtjs/cloudinary'],
+    buildModules:['@nuxtjs/tailwindcss', '@nuxt/image'],
+    cloudinary: {
+        cloudName: "test"
+    },
     css: ['~/assets/sass/app.scss'],
     build: {
         extractCSS: true,
@@ -33,12 +36,18 @@ export default {
         algolia: {
             appId: 'J3S59VE5EB',
             key: 'd4bb3964bd6a3f814f2148af2a057dbf'
+        },
+        cloudinary: {
+            key: '137615183731724'
         }
     },
     privateRuntimeConfig:{
         algolia: {
             appId: 'J3S59VE5EB',
             key: '3b88f4899445547b0999ebbebcff776f'
+        },
+        cloudinary: {
+            apiSecret: 'mEEgs5ax0WKGGBoX2c4HENr9Its'
         }
     },
 
