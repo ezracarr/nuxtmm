@@ -19,7 +19,12 @@ export default {
     modules:['~/modules/auth', '~/modules/algolia', '~/modules/cloudinary', '@nuxtjs/cloudinary'],
     buildModules:['@nuxtjs/tailwindcss', '@nuxt/image'],
     cloudinary: {
-        cloudName: "test"
+        cloudName: "dpoeqkblg"
+    },
+    image: {
+        cloudinary: {
+          baseURL: 'https://res.cloudinary.com/dpoeqkblg/image/upload/'
+        }
     },
     css: ['~/assets/sass/app.scss'],
     build: {

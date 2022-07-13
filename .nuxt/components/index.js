@@ -1,5 +1,6 @@
 export { default as HomeCard } from '../../components/HomeCard.vue'
 export { default as HomeRow } from '../../components/HomeRow.vue'
+export { default as ImageUploader } from '../../components/ImageUploader.vue'
 export { default as PropertyDescription } from '../../components/PropertyDescription.vue'
 export { default as PropertyDetails } from '../../components/PropertyDetails.vue'
 export { default as PropertyGallery } from '../../components/PropertyGallery.vue'

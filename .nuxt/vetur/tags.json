@@ -5,6 +5,9 @@
   "HomeRow": {
     "description": "Auto imported from components/HomeRow.vue"
   },
+  "ImageUploader": {
+    "description": "Auto imported from components/ImageUploader.vue"
+  },
   "PropertyDescription": {
     "description": "Auto imported from components/PropertyDescription.vue"
   },
