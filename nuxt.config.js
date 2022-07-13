@@ -37,6 +37,7 @@ export default {
     },
     privateRuntimeConfig:{
         algolia: {
+            appId: 'J3S59VE5EB',
             key: '3b88f4899445547b0999ebbebcff776f'
         }
     },
