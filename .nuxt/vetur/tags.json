@@ -1,4 +1,7 @@
 {
+  "CloudinaryUploader": {
+    "description": "Auto imported from components/CloudinaryUploader.vue"
+  },
   "HomeCard": {
     "description": "Auto imported from components/HomeCard.vue"
   },

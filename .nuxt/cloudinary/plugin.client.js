@@ -2,7 +2,7 @@ import { ClientApi } from '~cloudinary/client'
 
 const configuration = {
   "privateCdn": false,
-  "cloudName": "dpoeqkblg",
+  "cloudName": "dfu7oo41u",
   "secure": true
 }
 

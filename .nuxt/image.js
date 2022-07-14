@@ -25,7 +25,7 @@ const imageOptions = {
 
 imageOptions.providers = {
   ['static']: { provider: staticRuntime$9253, defaults: {} },
-  ['cloudinary']: { provider: cloudinaryRuntime$b8e5, defaults: {"baseURL":"https://res.cloudinary.com/dpoeqkblg/image/upload/"} },
+  ['cloudinary']: { provider: cloudinaryRuntime$b8e5, defaults: {"baseURL":"https://res.cloudinary.com/dfu7oo41u/image/upload/"} },
   ['ipx']: { provider: ipxRuntime$dd35, defaults: {} }
 }
 

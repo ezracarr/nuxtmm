@@ -1,3 +1,4 @@
+export { default as CloudinaryUploader } from '../../components/CloudinaryUploader.vue'
 export { default as HomeCard } from '../../components/HomeCard.vue'
 export { default as HomeRow } from '../../components/HomeRow.vue'
 export { default as ImageUploader } from '../../components/ImageUploader.vue'

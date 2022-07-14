@@ -19,11 +19,11 @@ export default {
     modules:['~/modules/auth', '~/modules/algolia', '~/modules/cloudinary', '@nuxtjs/cloudinary'],
     buildModules:['@nuxtjs/tailwindcss', '@nuxt/image'],
     cloudinary: {
-        cloudName: "dpoeqkblg"
+        cloudName: "dfu7oo41u"
     },
     image: {
         cloudinary: {
-          baseURL: 'https://res.cloudinary.com/dpoeqkblg/image/upload/'
+          baseURL: 'https://res.cloudinary.com/dfu7oo41u/image/upload/'
         }
     },
     css: ['~/assets/sass/app.scss'],
@@ -43,7 +43,7 @@ export default {
             key: 'd4bb3964bd6a3f814f2148af2a057dbf'
         },
         cloudinary: {
-            key: '137615183731724'
+            apiKey: '336746486477742'
         }
     },
     privateRuntimeConfig:{
@@ -52,7 +52,7 @@ export default {
             key: '3b88f4899445547b0999ebbebcff776f'
         },
         cloudinary: {
-            apiSecret: 'mEEgs5ax0WKGGBoX2c4HENr9Its'
+            apiSecret: 'YvoiiOVgfw5Ck1OvEvi6mt3zWaA'
         }
     },
 
