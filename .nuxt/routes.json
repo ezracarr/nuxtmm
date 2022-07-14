@@ -1,5 +1,25 @@
 [
   {
+    "name": "admin",
+    "path": "/admin",
+    "component": "/Users/andrewfink/code/meetupmarket/pages/admin.vue",
+    "chunkName": "pages/admin",
+    "children": [
+      {
+        "name": "admin-homes",
+        "path": "homes",
+        "component": "/Users/andrewfink/code/meetupmarket/pages/admin/homes.vue",
+        "chunkName": "pages/admin/homes"
+      }
+    ]
+  },
+  {
+    "name": "no-access",
+    "path": "/no-access",
+    "component": "/Users/andrewfink/code/meetupmarket/pages/no-access.vue",
+    "chunkName": "pages/no-access"
+  },
+  {
     "name": "search",
     "path": "/search",
     "component": "/Users/andrewfink/code/meetupmarket/pages/search.vue",

@@ -5,7 +5,7 @@ export default function(context, inject){
     addScript()
     inject('maps', {
         showMap,
-        makeAutoComplete
+        makeAutoComplete,
     })
 
 
@@ -27,13 +27,13 @@ export default function(context, inject){
         waiting = []
     }
 
-    function makeAutoComplete(input){
+    function makeAutoComplete(input, types = ['(cities)']){
         if(!isLoaded){
             waiting.push({ fn: makeAutoComplete, arguments})
             return
         }
 
-        const autoComplete = new window.google.maps.places.Autocomplete(input, { types: ['(cities)']})
+        const autoComplete = new window.google.maps.places.Autocomplete(input, { types })
         autoComplete.addListener('place_changed', () => {
             const place = autoComplete.getPlace()
             input.dispatchEvent(new CustomEvent('changed', { detail: place }))

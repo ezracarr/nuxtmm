@@ -15,9 +15,17 @@ export default {
     router: {
         prefetchLinks: false,
     },
-    plugins:[ '~/plugins/maps.client', '~/plugins/dataApi' ],
-    modules:[],
-    buildModules:['@nuxtjs/tailwindcss'],
+    plugins:[ '~/plugins/maps.client', '~/plugins/dataApi', '~/plugins/auth.client' ],
+    modules:['~/modules/auth', '~/modules/algolia', '~/modules/cloudinary', '@nuxtjs/cloudinary'],
+    buildModules:['@nuxtjs/tailwindcss', '@nuxt/image'],
+    cloudinary: {
+        cloudName: "dfu7oo41u"
+    },
+    image: {
+        cloudinary: {
+          baseURL: 'https://res.cloudinary.com/dfu7oo41u/image/upload/'
+        }
+    },
     css: ['~/assets/sass/app.scss'],
     build: {
         extractCSS: true,
@@ -25,12 +33,27 @@ export default {
             limit: 0,
         }
     },
-    publicRuntimeConfig: {
-        test1: "public",
-        test2: "public"
+    publicRuntimeConfig:{
+        auth:{
+            cookieName: 'idToken',
+            clientId: '513675484343-u3698rbr9cmlro9g6ia8hdaaohb6fg8f.apps.googleusercontent.com',
+        },
+        algolia: {
+            appId: 'J3S59VE5EB',
+            key: 'd4bb3964bd6a3f814f2148af2a057dbf'
+        },
+        cloudinary: {
+            apiKey: '336746486477742'
+        }
     },
-    privateRuntimeConfig: {
-        test2: "private"
-    }
+    privateRuntimeConfig:{
+        algolia: {
+            appId: 'J3S59VE5EB',
+            key: '3b88f4899445547b0999ebbebcff776f'
+        },
+        cloudinary: {
+            apiSecret: 'YvoiiOVgfw5Ck1OvEvi6mt3zWaA'
+        }
+    },
 
 }
