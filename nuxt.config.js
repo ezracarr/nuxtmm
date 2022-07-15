@@ -15,7 +15,12 @@ export default {
     router: {
         prefetchLinks: false,
     },
-    plugins:[ '~/plugins/maps.client', '~/plugins/dataApi', '~/plugins/auth.client' ],
+    plugins:[ 
+        '~/plugins/maps.client', 
+        '~/plugins/dataApi', 
+        '~/plugins/auth.client', 
+        '~plugins/vCalendar.client' 
+    ],
     modules:['~/modules/auth', '~/modules/algolia', '~/modules/cloudinary', '@nuxtjs/cloudinary'],
     buildModules:['@nuxtjs/tailwindcss', '@nuxt/image'],
     cloudinary: {

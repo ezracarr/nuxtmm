@@ -10,7 +10,8 @@
     "node-sass": "^7.0.1",
     "nuxt": "^2.15.8",
     "ufo": "^0.8.5",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "v-calendar": "^2.4.1"
   },
   "scripts": {
     "dev": "nuxt",
