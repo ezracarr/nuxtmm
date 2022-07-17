@@ -21,6 +21,7 @@ import nuxt_plugin_maps_6ed989cc from 'nuxt_plugin_maps_6ed989cc' // Source: ../
 import nuxt_plugin_dataApi_3cd42dda from 'nuxt_plugin_dataApi_3cd42dda' // Source: ../plugins/dataApi (mode: 'all')
 import nuxt_plugin_auth_6442cd9b from 'nuxt_plugin_auth_6442cd9b' // Source: ../plugins/auth.client (mode: 'client')
 import nuxt_plugin_vCalendar_87d59a08 from 'nuxt_plugin_vCalendar_87d59a08' // Source: ../plugins/vCalendar.client (mode: 'client')
+import nuxt_plugin_stripe_c27273d6 from 'nuxt_plugin_stripe_c27273d6' // Source: ../plugins/stripe.client (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -247,6 +248,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (process.client && typeof nuxt_plugin_vCalendar_87d59a08 === 'function') {
     await nuxt_plugin_vCalendar_87d59a08(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_stripe_c27273d6 === 'function') {
+    await nuxt_plugin_stripe_c27273d6(app.context, inject)
   }
 
   // Lock enablePreview in context
