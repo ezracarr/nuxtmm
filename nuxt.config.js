@@ -15,8 +15,20 @@ export default {
     router: {
         prefetchLinks: false,
     },
-    plugins:[ '~/plugins/maps.client', '~/plugins/dataApi', '~/plugins/auth.client' ],
-    modules:['~/modules/auth', '~/modules/algolia', '~/modules/cloudinary', '@nuxtjs/cloudinary'],
+    plugins:[ 
+        '~/plugins/maps.client', 
+        '~/plugins/dataApi', 
+        '~/plugins/auth.client', 
+        '~plugins/vCalendar.client',
+        '~plugins/stripe.client' 
+    ],
+    modules:[
+        '~/modules/auth', 
+        '~/modules/algolia', 
+        '~/modules/cloudinary', 
+        '@nuxtjs/cloudinary',
+        '~/modules/stripe'
+    ],
     buildModules:['@nuxtjs/tailwindcss', '@nuxt/image'],
     cloudinary: {
         cloudName: "dfu7oo41u"
@@ -44,6 +56,9 @@ export default {
         },
         cloudinary: {
             apiKey: '336746486477742'
+        },
+        stripe: {
+             key: "pk_live_51JDXpXCxlNckezumumPPmn69Hc1nNLSxrBI6eUJcqG0wA54jT9f3QH9Cpa0zpHQn3DDOHdZonSK2zgj2CzDYerDa00jUjli62X"
         }
     },
     privateRuntimeConfig:{
@@ -53,6 +68,9 @@ export default {
         },
         cloudinary: {
             apiSecret: 'YvoiiOVgfw5Ck1OvEvi6mt3zWaA'
+        },
+        stripe: {
+            secretKey: process.env.STRIPE_SECRET_KEY
         }
     },
 
