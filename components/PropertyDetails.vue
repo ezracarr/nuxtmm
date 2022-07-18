@@ -13,9 +13,9 @@
             </div>
             <div class="app-property-details-footer">
                 {{ pluralize(home.guests, "guest") }} &middot; 
-                {{ pluralize(home.bedrooms, "room") }} &middot;
-                {{ pluralize(home.beds, "bed") }} &middot;
-                {{ pluralize(home.bathrooms, "bath")}} 
+                {{ pluralize(home.bedrooms, "events") }} &middot;
+                {{ pluralize(home.beds, "members") }} &middot;
+                {{ pluralize(home.bathrooms, "products")}} 
             </div>
         </div>
         <div>

@@ -9,32 +9,38 @@
         "name": "admin-homes",
         "path": "homes",
         "component": "/Users/andrewfink/code/meetupmarket/pages/admin/homes.vue",
-        "chunkName": "pages/admin/homes"
+        "chunkName": "pages/admin/homes",
+        "_name": "_04e72310"
       }
-    ]
+    ],
+    "_name": "_e856e9aa"
   },
   {
     "name": "no-access",
     "path": "/no-access",
     "component": "/Users/andrewfink/code/meetupmarket/pages/no-access.vue",
-    "chunkName": "pages/no-access"
+    "chunkName": "pages/no-access",
+    "_name": "_5d9c144c"
   },
   {
     "name": "search",
     "path": "/search",
     "component": "/Users/andrewfink/code/meetupmarket/pages/search.vue",
-    "chunkName": "pages/search"
+    "chunkName": "pages/search",
+    "_name": "_c3fef008"
   },
   {
     "name": "Home-id",
     "path": "/Home/:id?",
     "component": "/Users/andrewfink/code/meetupmarket/pages/Home/_id.vue",
-    "chunkName": "pages/Home/_id"
+    "chunkName": "pages/Home/_id",
+    "_name": "_006d1a04"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/andrewfink/code/meetupmarket/pages/index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_5a65372e"
   }
 ]
