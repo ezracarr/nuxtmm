@@ -52,7 +52,7 @@ export default function({ $config }, inject){
         }
     }
 
-    async function getHomesByLocation(lat, lng, start, end, radiusInMeters = 1500 * 15){
+    async function getHomesByLocation(lat, lng, start, end, radiusInMeters = 1500 * 1500){
         try {
             const days = []
             for(var day = start;day <= end; day += 86400){
