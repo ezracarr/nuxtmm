@@ -6,6 +6,7 @@
      <nuxt-link v-for="home in homes" :key="home.objectID" :to="`/home/${home.objectID}`">
        <HomeRow class="app-house" :home="home" @mouseover.native="highlightMarker(home.objectID, true)" @mouseout.native="highlightMarker(home.objectID, false)"/>
     </nuxt-link> 
+    <div v-if="homes.length == 0">No homes found, try another city.</div>
    </div>  
    <div class="app-search-results-map">
      <div class="app-map" ref="map"></div>

@@ -55,7 +55,8 @@ export default function({ $config }, inject){
     async function getHomesByLocation(lat, lng, start, end, radiusInMeters = 1500 * 1500){
         try {
             const days = []
-            for(var day = start;day <= end; day += 86400){
+
+            for(var day = parseInt(start);day <= parseInt(end); day += 86400){
                 days.push(`availability:${day}`)
             }
             return unWrap(await fetch(`https://${$config.algolia.appId}-dsn.algolia.net/1/indexes/homes/query`, {
