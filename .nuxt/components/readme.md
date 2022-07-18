@@ -16,4 +16,7 @@ You can directly use them in pages and other components without the need to impo
 - `<PropertyHost>` | `<property-host>` (components/PropertyHost.vue)
 - `<PropertyMap>` | `<property-map>` (components/PropertyMap.vue)
 - `<PropertyReviews>` | `<property-reviews>` (components/PropertyReviews.vue)
+- `<SectionMore>` | `<section-more>` (components/SectionMore.vue)
+- `<SectionPremiumListings>` | `<section-premium-listings>` (components/SectionPremiumListings.vue)
+- `<SectionRecentlyAdded>` | `<section-recently-added>` (components/SectionRecentlyAdded.vue)
 - `<ShortText>` | `<short-text>` (components/ShortText.vue)

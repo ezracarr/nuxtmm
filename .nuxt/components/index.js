@@ -8,6 +8,9 @@ export { default as PropertyGallery } from '../../components/PropertyGallery.vue
 export { default as PropertyHost } from '../../components/PropertyHost.vue'
 export { default as PropertyMap } from '../../components/PropertyMap.vue'
 export { default as PropertyReviews } from '../../components/PropertyReviews.vue'
+export { default as SectionMore } from '../../components/SectionMore.vue'
+export { default as SectionPremiumListings } from '../../components/SectionPremiumListings.vue'
+export { default as SectionRecentlyAdded } from '../../components/SectionRecentlyAdded.vue'
 export { default as ShortText } from '../../components/ShortText.vue'
 
 // nuxt/nuxt.js#8607

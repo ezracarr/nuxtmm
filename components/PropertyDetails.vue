@@ -13,9 +13,9 @@
             </div>
             <div class="app-property-details-footer">
                 {{ pluralize(home.guests, "guest") }} &middot; 
-                {{ pluralize(home.bedrooms, "events") }} &middot;
-                {{ pluralize(home.beds, "members") }} &middot;
-                {{ pluralize(home.bathrooms, "products")}} 
+                {{ pluralize(home.bedrooms, "room") }} &middot;
+                {{ pluralize(home.beds, "bed") }} &middot;
+                {{ pluralize(home.bathrooms, "bath")}} 
             </div>
         </div>
         <div>
@@ -60,6 +60,19 @@ export default {
     methods:{
         pluralize,
         checkout(){
+            if(!this.range.start || !this.range.end) {
+                alert('Please select a start and end date')
+                return
+            }
+            if(this.range.start.toString() == this.range.end.toString()){
+                alert('Start and end dates must be at least 1 day apart')
+                return
+            }
+    
+            if(!this.$store.state.auth.isLoggedIn){
+                alert('You must sign in to book your stay')
+                return
+            }
             const start = this.range.start.getTime() / 1000
             const end = this.range.end.getTime() / 1000
             this.$stripe.checkout(this.home.objectID, start, end)

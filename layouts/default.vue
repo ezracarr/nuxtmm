@@ -1,11 +1,11 @@
 <template>
   <div class="app">    
     <header class="app-header">
-      <div class="app-logo">
+      <nuxt-link class="app-logo" to="/">
         <img src="/images/logo.svg"/>
-      </div>
+      </nuxt-link>
       <div class="app-search">
-        <input type="text" ref="citySearch" @changed="changed" placeholder="Enter your address"/>
+        <input type="text" ref="citySearch" @changed="changed" placeholder="Enter a city"/>
         <client-only>
 
         <template #placeholder>
@@ -33,8 +33,6 @@
       </div>
       <div class="app-user-menu">
         <template v-if="isLoggedIn">
-          <img src="/images/icons/house.svg"/>
-          <div class="name">Host</div>
           <img :src="user.profileUrl" class="avatar"/>
         </template>
         <div v-show="!isLoggedIn" id="googleButton" class="ml-8"></div>
@@ -53,8 +51,8 @@ export default {
         label: '',
       },
       range: {
-        start: new Date(),
-        end: new Date(),
+        start: null,
+        end: null,
       }
     }
   },
@@ -71,7 +69,7 @@ export default {
   },
   methods: {
     search(){
-      if(!this.location.label) return
+      if(!this.location.label || !this.range.start || !this.range.end) return
       this.$router.push({
           name: "search",
           query: {
