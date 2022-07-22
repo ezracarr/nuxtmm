@@ -5,7 +5,11 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _e856e9aa = () => interopDefault(import('../pages/admin.vue' /* webpackChunkName: "pages/admin" */))
+const _6b6f1cad = () => interopDefault(import('../pages/admin/events.vue' /* webpackChunkName: "pages/admin/events" */))
 const _04e72310 = () => interopDefault(import('../pages/admin/homes.vue' /* webpackChunkName: "pages/admin/homes" */))
+const _1373ebad = () => interopDefault(import('../pages/admin/meetups.vue' /* webpackChunkName: "pages/admin/meetups" */))
+const _c3faff10 = () => interopDefault(import('../pages/admin/products.vue' /* webpackChunkName: "pages/admin/products" */))
+const _1b458c2e = () => interopDefault(import('../pages/admin/transactions.vue' /* webpackChunkName: "pages/admin/transactions" */))
 const _5d9c144c = () => interopDefault(import('../pages/no-access.vue' /* webpackChunkName: "pages/no-access" */))
 const _c3fef008 = () => interopDefault(import('../pages/search.vue' /* webpackChunkName: "pages/search" */))
 const _006d1a04 = () => interopDefault(import('../pages/Home/_id.vue' /* webpackChunkName: "pages/Home/_id" */))
@@ -27,9 +31,25 @@ export const routerOptions = {
     component: _e856e9aa,
     name: "admin",
     children: [{
+      path: "events",
+      component: _6b6f1cad,
+      name: "admin-events"
+    }, {
       path: "homes",
       component: _04e72310,
       name: "admin-homes"
+    }, {
+      path: "meetups",
+      component: _1373ebad,
+      name: "admin-meetups"
+    }, {
+      path: "products",
+      component: _c3faff10,
+      name: "admin-products"
+    }, {
+      path: "transactions",
+      component: _1b458c2e,
+      name: "admin-transactions"
     }]
   }, {
     path: "/no-access",
