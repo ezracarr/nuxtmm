@@ -25,6 +25,13 @@
     <input type='text' v-model="meetup.features[2]" class="w-26"/>
     <input type='text' v-model="meetup.features[3]" class="w-26"/>
     <input type='text' v-model="meetup.features[4]" class="w-26"/><br/>
+    Payment links<br/>
+    <input type='text' v-model="meetup.paymentLinks[0]" class="w-26"/>
+    <input type='text' v-model="meetup.paymentLinks[1]" class="w-26"/>
+    <input type='text' v-model="meetup.paymentLinks[2]" class="w-26"/>
+    <input type='text' v-model="meetup.paymentLinks[3]" class="w-26"/>
+    <input type='text' v-model="meetup.paymentLinks[4]" class="w-26"/>
+
     Price Per Event<br/>
     <input type='number' v-model="meetup.pricePerEvent" class="w-14"/><br/>
     Members / Products / Transactions / Events<br/>
@@ -60,6 +67,7 @@ export default {
                 events: '',
                 transactions: '',
                 features: ['', '', '', '', ''],
+                paymentLinks : ['', '', '', '', ''],
                 location: {
                     address: '',
                     city: '',

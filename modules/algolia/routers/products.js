@@ -12,6 +12,10 @@ export default (apis) => {
             return await getProductsByUser(req.identity.id, res)
         }
 
+        if(req.method == 'GET' && req.url == '/meetup/'){
+            return await getProductsByMeetup(req.identity.id, res)
+        }
+
         if(req.method == 'POST'){
             if(hasBadBody(req)){
                 return rejectHitBadRequest(res)
@@ -34,6 +38,11 @@ export default (apis) => {
         sendJSON(payload, res)
     }
 
+    async function getProductsByMeetup(userId, res){
+        const payload = (await apis.products.getByMeetupId(userId)).json.hits
+        sendJSON(payload, res)
+    }
+
     async function createProduct(identity, body, res){
         const productId = uuidv4()
         const payload = {
@@ -48,7 +57,9 @@ export default (apis) => {
             res.end()
             return
         }
-        await apis.user.assignProduct(identity, productId)
+        // this only makes sense when a user that is not one of us is the one making a new product
+        // await apis.user.assignProduct(identity, productId)
+        await apis.meetup.assignProduct(identity, productId)
         sendJSON({ productId }, res)
     }
 }

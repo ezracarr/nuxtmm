@@ -32,6 +32,17 @@ export default (algoliaConfig) => {
             payload.homeId.push(homeId)
             this.create(identity, payload)
         },
+        // these methods will be useful when opening the app up to allow users to generate new meetups and products
+        // assignMeetup: async function(identity, meetupId){
+        //     const payload = (await this.getById(identity)).json
+        //     payload.meetupId.push(meetupId)
+        //     this.create(identity, payload)
+        // },
+        // assignProduct: async function(identity, productId){
+        //     const payload = (await this.getById(identity)).json
+        //     payload.productId.push(productId)
+        //     this.create(identity, payload)
+        // },
         create: async (identity, payload) => {
             try {
                 return unWrap(await fetch(`https://${algoliaConfig.appId}-dsn.algolia.net/1/indexes/users/${identity.id}`, {
