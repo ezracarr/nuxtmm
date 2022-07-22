@@ -41,7 +41,7 @@
         </div>
     </div>
     <div class="app-container"style='height: 800px; margin: 40px; border: solid; border-radius: 40px'>
-         <h1>BTC Pay Server</h1>
+         <h1>BTC Pay Server!</h1>
          <hr/>
          <br/>
         <iframe src='https://btcpay0.voltageapp.io/apps/3srUAjcqnx6dNZYiX3nJLvTYbCKJ/pos' style='max-width: 100%; height: 750px; width: 1000px; border: 0;'></iframe>
