@@ -26,22 +26,24 @@ export default (algoliaConfig) => {
         },
         create: async (meetupId, payload) => {
             try {
-                const availability = []
-                payload.availabilityRanges.forEach(range => {
-                    const start = new Date(range.start).getTime() / 1000
-                    const end = new Date(range.end).getTime() / 1000
-                    for(var day = start; day <= end; day += 86400){
-                        availability.push(day)
-                    }
-                })
-
-                delete payload.availabilityRanges
-                payload.availability = availability
-                
                 return unWrap(await fetch(`https://${algoliaConfig.appId}-dsn.algolia.net/1/indexes/meetups/${meetupId}`, {
                     headers,
                     method: 'PUT',
                     body: JSON.stringify(payload),
+                }))
+            } catch(error){
+                return getErrorResponse(error)
+            }
+        },
+        assignProduct: async function(identity, productId){
+            const payload = (await this.getById(identity)).json
+            payload.productId.push(productId)
+            this.create(identity, payload)
+        },
+        getById: async (identity) => {
+            try {
+                return unWrap(await fetch(`https://${algoliaConfig.appId}-dsn.algolia.net/1/indexes/meetup/${identity.id}`, {
+                    headers,               
                 }))
             } catch(error){
                 return getErrorResponse(error)

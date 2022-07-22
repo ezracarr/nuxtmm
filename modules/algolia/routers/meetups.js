@@ -48,7 +48,8 @@ export default (apis) => {
             res.end()
             return
         }
-        await apis.user.assignMeetup(identity, meetupId)
+        // this only makes sense when a user that is not one of us is the one making a new product
+        // await apis.user.assignMeetup(identity, meetupId)
         sendJSON({ meetupId }, res)
     }
 }

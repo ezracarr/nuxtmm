@@ -47,6 +47,41 @@ export default (algoliaConfig) => {
                 return getErrorResponse(error)
             }
         },
+        getAll: async () => {
+            try {
+                return unWrap(await fetch(`https://${algoliaConfig.appId}-dsn.algolia.net/1/indexes/transactions/query`, {
+                    headers,
+                    method: 'POST',
+                    body: JSON.stringify({
+                        attributesToRetrieve:[
+                            'objectID',
+                            'title',
+                        ],
+                        attributesToHighlight:[],
+                    }),
+                }))
+            } catch(error){
+                return getErrorResponse(error)
+            }
+        },
+        getByMeetupId: async (meetupId) => {
+            try {
+                return unWrap(await fetch(`https://${algoliaConfig.appId}-dsn.algolia.net/1/indexes/transactions/query`, {
+                    headers,
+                    method: 'POST',
+                    body: JSON.stringify({
+                        filters: `meetupId:${meetupId}`,
+                        attributesToRetrieve:[
+                            'objectID',
+                            'title',
+                        ],
+                        attributesToHighlight:[],
+                    }),
+                }))
+            } catch(error){
+                return getErrorResponse(error)
+            }
+        },
         getByUserId: async (userId) => {
             try {
                 return unWrap(await fetch(`https://${algoliaConfig.appId}-dsn.algolia.net/1/indexes/transactions/query`, {

@@ -8,8 +8,12 @@ export default (apis) => {
             return await deleteTransaction(req.identity, transactionId, res)
         }
 
+        // if(req.method == 'GET' && req.url == '/user/'){
+        //     return await getTransactionsByUser(req.identity.id, res)
+        // }
+
         if(req.method == 'GET' && req.url == '/user/'){
-            return await getTransactionsByUser(req.identity.id, res)
+            return await getTransactions(req.identity.id, res)
         }
 
         if(req.method == 'POST'){
@@ -29,8 +33,13 @@ export default (apis) => {
         sendJSON({}, res)
     }
 
-    async function getTransactionsByUser(userId, res){
-        const payload = (await apis.transactions.getByUserId(userId)).json.hits
+    // async function getTransactionsByUser(userId, res){
+    //     const payload = (await apis.transactions.getByUserId(userId)).json.hits
+    //     sendJSON(payload, res)
+    // }
+
+    async function getTransactions(userId, res){
+        const payload = (await apis.transactions.getAll()).json.hits
         sendJSON(payload, res)
     }
 
