@@ -1,6 +1,10 @@
 import bodyParser from 'body-parser'
 import userRouter from './routers/user'
 import homesRouter from './routers/homes'
+import homesRouter from './routers/meetups'
+import homesRouter from './routers/events'
+import homesRouter from './routers/products'
+import homesRouter from './routers/transactions'
 import getApis from './apis'
 
 export default function(){
