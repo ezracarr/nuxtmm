@@ -12,15 +12,15 @@
                 </div>
             </div>
             <div class="app-property-details-footer">
-                {{ pluralize(home.guests, "guest") }} &middot; 
-                {{ pluralize(home.bedrooms, "room") }} &middot;
-                {{ pluralize(home.beds, "bed") }} &middot;
-                {{ pluralize(home.bathrooms, "bath")}} 
+                {{ pluralize(home.guests, "member") }} &middot; 
+                {{ pluralize(home.bedrooms, "product") }} &middot;
+                {{ pluralize(home.beds, "product") }} &middot;
+                {{ pluralize(home.bathrooms, "product")}} 
             </div>
         </div>
         <div>
             <div class="app-price">
-                ${{ home.pricePerNight }}<span> / night</span>
+                ${{ home.pricePerNight }}<span> / event</span>
             </div>
            
     <client-only>       
@@ -38,7 +38,7 @@
         </date-picker>
       </client-only>
 
-            <button class="app-big-button" @click="checkout">Request to book!</button>
+            <button class="app-big-button" @click="checkout">Sign up</button>
         </div>
     </div>
 </div>

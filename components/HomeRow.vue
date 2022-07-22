@@ -14,7 +14,7 @@
     </div>
     <div class="app-amenities">
         <p>
-        {{ pluralize(home.guests, "guest") }}, {{ pluralize(home.bedrooms, "room") }}, {{ pluralize(home.beds, "bed") }}, {{ pluralize(home.bathrooms, "bath")}}     
+        {{ pluralize(home.guests, "member") }}, {{ pluralize(home.bedrooms, "product") }}, {{ pluralize(home.beds, "product") }}, {{ pluralize(home.bathrooms, "product")}}     
         </p>
         <p>{{ features }}</p>
     </div>
@@ -24,7 +24,7 @@
         <span>({{ home.reviewCount }})</span>
       </div>
       <div class="app-price">
-        ${{ home.pricePerNight }}<span>/ night</span>
+        ${{ home.pricePerNight }}<span>/ event</span>
       </div>
     </div>
   </div>
