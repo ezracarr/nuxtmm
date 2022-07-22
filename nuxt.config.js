@@ -1,7 +1,7 @@
 export default {
     components: true,
     head: {
-        titleTemplate: "Mastering Nuxt: %s",
+        titleTemplate: "Meetup Market: %s",
         htmlAttrs: {
             lang: "en"
         },
@@ -59,7 +59,7 @@ export default {
             apiKey: '336746486477742'
         },
         stripe: {
-             key: "pk_live_51JDXpXCxlNckezumumPPmn69Hc1nNLSxrBI6eUJcqG0wA54jT9f3QH9Cpa0zpHQn3DDOHdZonSK2zgj2CzDYerDa00jUjli62X"
+             key: "INSERT_KEY_HERE"
         }
     },
     privateRuntimeConfig:{

@@ -24,13 +24,17 @@
                 {{ home.address }}
               </div>
               <div class="app-price">
-                ${{ home.pricePerNight }}
-                <span>/ night</span>
+                {{ home.bathrooms }}
+                <span> upcoming event(s)</span>
               </div>
               <div class="app-house-footer">
                 <img src="/images/icons/house-blue.svg" width="16px">
                 <div class="app-house-guests">
-                  {{ home.guests }} guests
+                  {{ home.guests }} members
+                </div>
+                <img src="/images/icons/house-blue.svg" width="16px">
+                <div class="app-house-guests">
+                  {{ home.bedrooms }} products
                 </div>
               </div>
             </div>
