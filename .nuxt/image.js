@@ -3,9 +3,9 @@ import { createImage} from '~image'
 import NuxtImg from '~image/components/nuxt-img.vue'
 import NuxtPicture from '~image/components/nuxt-picture.vue'
 
-import * as staticRuntime$9253 from '/Users/andrewfink/code/meetupmarket/node_modules/@nuxt/image/dist/runtime/providers/static.js'
-import * as cloudinaryRuntime$b8e5 from '/Users/andrewfink/code/meetupmarket/node_modules/@nuxt/image/dist/runtime/providers/cloudinary.js'
-import * as ipxRuntime$dd35 from '/Users/andrewfink/code/meetupmarket/node_modules/@nuxt/image/dist/runtime/providers/ipx.js'
+import * as staticRuntime$0317 from '/Users/rick/Repos/nuxtmm/node_modules/@nuxt/image/dist/runtime/providers/static.js'
+import * as cloudinaryRuntime$341d from '/Users/rick/Repos/nuxtmm/node_modules/@nuxt/image/dist/runtime/providers/cloudinary.js'
+import * as ipxRuntime$9e5d from '/Users/rick/Repos/nuxtmm/node_modules/@nuxt/image/dist/runtime/providers/ipx.js'
 
 const imageOptions = {
   "screens": {
@@ -24,9 +24,9 @@ const imageOptions = {
 }
 
 imageOptions.providers = {
-  ['static']: { provider: staticRuntime$9253, defaults: {} },
-  ['cloudinary']: { provider: cloudinaryRuntime$b8e5, defaults: {"baseURL":"https://res.cloudinary.com/dfu7oo41u/image/upload/"} },
-  ['ipx']: { provider: ipxRuntime$dd35, defaults: {} }
+  ['static']: { provider: staticRuntime$0317, defaults: {} },
+  ['cloudinary']: { provider: cloudinaryRuntime$341d, defaults: {"baseURL":"https://res.cloudinary.com/dfu7oo41u/image/upload/"} },
+  ['ipx']: { provider: ipxRuntime$9e5d, defaults: {} }
 }
 
 Vue.component(NuxtImg.name, NuxtImg)

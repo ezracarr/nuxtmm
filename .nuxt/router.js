@@ -4,16 +4,16 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _e856e9aa = () => interopDefault(import('../pages/admin.vue' /* webpackChunkName: "pages/admin" */))
-const _6b6f1cad = () => interopDefault(import('../pages/admin/events.vue' /* webpackChunkName: "pages/admin/events" */))
-const _04e72310 = () => interopDefault(import('../pages/admin/homes.vue' /* webpackChunkName: "pages/admin/homes" */))
-const _1373ebad = () => interopDefault(import('../pages/admin/meetups.vue' /* webpackChunkName: "pages/admin/meetups" */))
-const _c3faff10 = () => interopDefault(import('../pages/admin/products.vue' /* webpackChunkName: "pages/admin/products" */))
-const _1b458c2e = () => interopDefault(import('../pages/admin/transactions.vue' /* webpackChunkName: "pages/admin/transactions" */))
-const _5d9c144c = () => interopDefault(import('../pages/no-access.vue' /* webpackChunkName: "pages/no-access" */))
-const _c3fef008 = () => interopDefault(import('../pages/search.vue' /* webpackChunkName: "pages/search" */))
-const _006d1a04 = () => interopDefault(import('../pages/Home/_id.vue' /* webpackChunkName: "pages/Home/_id" */))
-const _5a65372e = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _14d54e0e = () => interopDefault(import('../pages/admin.vue' /* webpackChunkName: "pages/admin" */))
+const _f9ca372c = () => interopDefault(import('../pages/admin/events.vue' /* webpackChunkName: "pages/admin/events" */))
+const _2ef4efb3 = () => interopDefault(import('../pages/admin/homes.vue' /* webpackChunkName: "pages/admin/homes" */))
+const _1d7dc8e0 = () => interopDefault(import('../pages/admin/meetups.vue' /* webpackChunkName: "pages/admin/meetups" */))
+const _79db4cf5 = () => interopDefault(import('../pages/admin/products.vue' /* webpackChunkName: "pages/admin/products" */))
+const _63d17fe6 = () => interopDefault(import('../pages/admin/transactions.vue' /* webpackChunkName: "pages/admin/transactions" */))
+const _20eaadaf = () => interopDefault(import('../pages/no-access.vue' /* webpackChunkName: "pages/no-access" */))
+const _35182179 = () => interopDefault(import('../pages/search.vue' /* webpackChunkName: "pages/search" */))
+const _2f60a13b = () => interopDefault(import('../pages/Home/_id.vue' /* webpackChunkName: "pages/Home/_id" */))
+const _39340bde = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -28,44 +28,44 @@ export const routerOptions = {
 
   routes: [{
     path: "/admin",
-    component: _e856e9aa,
+    component: _14d54e0e,
     name: "admin",
     children: [{
       path: "events",
-      component: _6b6f1cad,
+      component: _f9ca372c,
       name: "admin-events"
     }, {
       path: "homes",
-      component: _04e72310,
+      component: _2ef4efb3,
       name: "admin-homes"
     }, {
       path: "meetups",
-      component: _1373ebad,
+      component: _1d7dc8e0,
       name: "admin-meetups"
     }, {
       path: "products",
-      component: _c3faff10,
+      component: _79db4cf5,
       name: "admin-products"
     }, {
       path: "transactions",
-      component: _1b458c2e,
+      component: _63d17fe6,
       name: "admin-transactions"
     }]
   }, {
     path: "/no-access",
-    component: _5d9c144c,
+    component: _20eaadaf,
     name: "no-access"
   }, {
     path: "/search",
-    component: _c3fef008,
+    component: _35182179,
     name: "search"
   }, {
     path: "/Home/:id?",
-    component: _006d1a04,
+    component: _2f60a13b,
     name: "Home-id"
   }, {
     path: "/",
-    component: _5a65372e,
+    component: _39340bde,
     name: "index"
   }],
 

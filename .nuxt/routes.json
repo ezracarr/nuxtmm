@@ -2,73 +2,73 @@
   {
     "name": "admin",
     "path": "/admin",
-    "component": "/Users/andrewfink/code/meetupmarket/pages/admin.vue",
+    "component": "/Users/rick/Repos/nuxtmm/pages/admin.vue",
     "chunkName": "pages/admin",
     "children": [
       {
         "name": "admin-events",
         "path": "events",
-        "component": "/Users/andrewfink/code/meetupmarket/pages/admin/events.vue",
+        "component": "/Users/rick/Repos/nuxtmm/pages/admin/events.vue",
         "chunkName": "pages/admin/events",
-        "_name": "_6b6f1cad"
+        "_name": "_f9ca372c"
       },
       {
         "name": "admin-homes",
         "path": "homes",
-        "component": "/Users/andrewfink/code/meetupmarket/pages/admin/homes.vue",
+        "component": "/Users/rick/Repos/nuxtmm/pages/admin/homes.vue",
         "chunkName": "pages/admin/homes",
-        "_name": "_04e72310"
+        "_name": "_2ef4efb3"
       },
       {
         "name": "admin-meetups",
         "path": "meetups",
-        "component": "/Users/andrewfink/code/meetupmarket/pages/admin/meetups.vue",
+        "component": "/Users/rick/Repos/nuxtmm/pages/admin/meetups.vue",
         "chunkName": "pages/admin/meetups",
-        "_name": "_1373ebad"
+        "_name": "_1d7dc8e0"
       },
       {
         "name": "admin-products",
         "path": "products",
-        "component": "/Users/andrewfink/code/meetupmarket/pages/admin/products.vue",
+        "component": "/Users/rick/Repos/nuxtmm/pages/admin/products.vue",
         "chunkName": "pages/admin/products",
-        "_name": "_c3faff10"
+        "_name": "_79db4cf5"
       },
       {
         "name": "admin-transactions",
         "path": "transactions",
-        "component": "/Users/andrewfink/code/meetupmarket/pages/admin/transactions.vue",
+        "component": "/Users/rick/Repos/nuxtmm/pages/admin/transactions.vue",
         "chunkName": "pages/admin/transactions",
-        "_name": "_1b458c2e"
+        "_name": "_63d17fe6"
       }
     ],
-    "_name": "_e856e9aa"
+    "_name": "_14d54e0e"
   },
   {
     "name": "no-access",
     "path": "/no-access",
-    "component": "/Users/andrewfink/code/meetupmarket/pages/no-access.vue",
+    "component": "/Users/rick/Repos/nuxtmm/pages/no-access.vue",
     "chunkName": "pages/no-access",
-    "_name": "_5d9c144c"
+    "_name": "_20eaadaf"
   },
   {
     "name": "search",
     "path": "/search",
-    "component": "/Users/andrewfink/code/meetupmarket/pages/search.vue",
+    "component": "/Users/rick/Repos/nuxtmm/pages/search.vue",
     "chunkName": "pages/search",
-    "_name": "_c3fef008"
+    "_name": "_35182179"
   },
   {
     "name": "Home-id",
     "path": "/Home/:id?",
-    "component": "/Users/andrewfink/code/meetupmarket/pages/Home/_id.vue",
+    "component": "/Users/rick/Repos/nuxtmm/pages/Home/_id.vue",
     "chunkName": "pages/Home/_id",
-    "_name": "_006d1a04"
+    "_name": "_2f60a13b"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/Users/andrewfink/code/meetupmarket/pages/index.vue",
+    "component": "/Users/rick/Repos/nuxtmm/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_5a65372e"
+    "_name": "_39340bde"
   }
 ]

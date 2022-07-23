@@ -13,15 +13,15 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_763b26cc from 'nuxt_plugin_plugin_763b26cc' // Source: ./components/plugin.js (mode: 'all')
-import nuxt_plugin_pluginclient_21a299e3 from 'nuxt_plugin_pluginclient_21a299e3' // Source: ./cloudinary/plugin.client.js (mode: 'client')
-import nuxt_plugin_pluginserver_f147e92a from 'nuxt_plugin_pluginserver_f147e92a' // Source: ./cloudinary/plugin.server.js (mode: 'server')
-import nuxt_plugin_image_02b3a8aa from 'nuxt_plugin_image_02b3a8aa' // Source: ./image.js (mode: 'all')
+import nuxt_plugin_plugin_0dba0dd7 from 'nuxt_plugin_plugin_0dba0dd7' // Source: ./components/plugin.js (mode: 'all')
+import nuxt_plugin_pluginclient_3268ebf4 from 'nuxt_plugin_pluginclient_3268ebf4' // Source: ./cloudinary/plugin.client.js (mode: 'client')
+import nuxt_plugin_pluginserver_4c84fb8e from 'nuxt_plugin_pluginserver_4c84fb8e' // Source: ./cloudinary/plugin.server.js (mode: 'server')
+import nuxt_plugin_image_3ce00068 from 'nuxt_plugin_image_3ce00068' // Source: ./image.js (mode: 'all')
 import nuxt_plugin_maps_6ed989cc from 'nuxt_plugin_maps_6ed989cc' // Source: ../plugins/maps.client (mode: 'client')
 import nuxt_plugin_dataApi_3cd42dda from 'nuxt_plugin_dataApi_3cd42dda' // Source: ../plugins/dataApi (mode: 'all')
 import nuxt_plugin_auth_6442cd9b from 'nuxt_plugin_auth_6442cd9b' // Source: ../plugins/auth.client (mode: 'client')
-import nuxt_plugin_vCalendar_87d59a08 from 'nuxt_plugin_vCalendar_87d59a08' // Source: ../plugins/vCalendar.client (mode: 'client')
-import nuxt_plugin_stripe_c27273d6 from 'nuxt_plugin_stripe_c27273d6' // Source: ../plugins/stripe.client (mode: 'client')
+import nuxt_plugin_vCalendar_7837889b from 'nuxt_plugin_vCalendar_7837889b' // Source: ../plugins/vCalendar.client (mode: 'client')
+import nuxt_plugin_stripe_16926cd6 from 'nuxt_plugin_stripe_16926cd6' // Source: ../plugins/stripe.client (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -218,20 +218,20 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_763b26cc === 'function') {
-    await nuxt_plugin_plugin_763b26cc(app.context, inject)
+  if (typeof nuxt_plugin_plugin_0dba0dd7 === 'function') {
+    await nuxt_plugin_plugin_0dba0dd7(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_pluginclient_21a299e3 === 'function') {
-    await nuxt_plugin_pluginclient_21a299e3(app.context, inject)
+  if (process.client && typeof nuxt_plugin_pluginclient_3268ebf4 === 'function') {
+    await nuxt_plugin_pluginclient_3268ebf4(app.context, inject)
   }
 
-  if (process.server && typeof nuxt_plugin_pluginserver_f147e92a === 'function') {
-    await nuxt_plugin_pluginserver_f147e92a(app.context, inject)
+  if (process.server && typeof nuxt_plugin_pluginserver_4c84fb8e === 'function') {
+    await nuxt_plugin_pluginserver_4c84fb8e(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_image_02b3a8aa === 'function') {
-    await nuxt_plugin_image_02b3a8aa(app.context, inject)
+  if (typeof nuxt_plugin_image_3ce00068 === 'function') {
+    await nuxt_plugin_image_3ce00068(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_maps_6ed989cc === 'function') {
@@ -246,12 +246,12 @@ async function createApp(ssrContext, config = {}) {
     await nuxt_plugin_auth_6442cd9b(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_vCalendar_87d59a08 === 'function') {
-    await nuxt_plugin_vCalendar_87d59a08(app.context, inject)
+  if (process.client && typeof nuxt_plugin_vCalendar_7837889b === 'function') {
+    await nuxt_plugin_vCalendar_7837889b(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_stripe_c27273d6 === 'function') {
-    await nuxt_plugin_stripe_c27273d6(app.context, inject)
+  if (process.client && typeof nuxt_plugin_stripe_16926cd6 === 'function') {
+    await nuxt_plugin_stripe_16926cd6(app.context, inject)
   }
 
   // Lock enablePreview in context

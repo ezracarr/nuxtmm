@@ -1,3 +1,7 @@
+if(!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+    require("dotenv").config();
+}
+
 export default {
     components: true,
     head: {
@@ -19,8 +23,8 @@ export default {
         '~/plugins/maps.client', 
         '~/plugins/dataApi', 
         '~/plugins/auth.client', 
-        '~plugins/vCalendar.client',
-        '~plugins/stripe.client' 
+        '~/plugins/vCalendar.client',
+        '~/plugins/stripe.client' 
     ],
     modules:[
         '~/modules/auth', 
@@ -31,11 +35,11 @@ export default {
     ],
     buildModules:['@nuxtjs/tailwindcss', '@nuxt/image'],
     cloudinary: {
-        cloudName: "dfu7oo41u"
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
     },
     image: {
         cloudinary: {
-          baseURL: 'https://res.cloudinary.com/dfu7oo41u/image/upload/'
+          baseURL: process.env.CLOUDINARY_BASE_URL,
         }
     },
     css: ['~/assets/sass/app.scss'],
@@ -46,29 +50,26 @@ export default {
         }
     },
     publicRuntimeConfig:{
-        rootUrl: process.env.NODE_ENV === 'production' ? 'https://nuxtmm.vercel.app' : 'http://localhost:3000',
+        rootUrl: process.env.ROOT_URL,
         auth:{
-            cookieName: 'idToken',
-            clientId: '513675484343-u3698rbr9cmlro9g6ia8hdaaohb6fg8f.apps.googleusercontent.com',
+            cookieName: process.env.AUTH_COOKIE_NAME,
+            clientId: process.env.AUTH_CLIENT_ID,
         },
         algolia: {
-            appId: 'J3S59VE5EB',
-            key: 'd4bb3964bd6a3f814f2148af2a057dbf'
+            appId: process.env.ALGOLIA_APP_ID,
+            key: process.env.ALGOLIA_API_KEY,
         },
         cloudinary: {
-            apiKey: '336746486477742'
+            apiKey: process.env.CLOUDINARY_API_KEY,
         },
-        stripe: {
-             key: "INSERT_KEY_HERE"
-        }
     },
     privateRuntimeConfig:{
         algolia: {
-            appId: 'J3S59VE5EB',
-            key: '3b88f4899445547b0999ebbebcff776f'
+            appId: process.env.ALGOLIA_APP_ID,
+            key: process.env.ALGOLIA_API_KEY,
         },
         cloudinary: {
-            apiSecret: 'YvoiiOVgfw5Ck1OvEvi6mt3zWaA'
+            apiSecret: process.env.CLOUDINARY_API_SECRET
         },
         stripe: {
             secretKey: process.env.STRIPE_SECRET_KEY

@@ -1,21 +1,22 @@
 {
-  "name": "mastering-nuxt",
+  "name": "meetup-market",
+  "scripts": {
+    "dev": "export NODE_OPTIONS=--openssl-legacy-provider && nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start"
+  },
   "dependencies": {
     "@nuxt/kit": "^3.0.0-rc.4",
     "@nuxtjs/cloudinary": "^1.0.3",
     "body-parser": "^1.20.0",
     "cloudinary-vue": "1.1.2",
+    "dotenv": "^16.0.1",
     "google-auth-library": "^8.1.0",
     "js-cookie": "^3.0.1",
     "nuxt": "^2.15.8",
     "stripe": "^9.13.0",
     "uuid": "^8.3.2",
     "v-calendar": "^2.4.1"
-  },
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start"
   },
   "devDependencies": {
     "@nuxt/image": "^0.7.1",
