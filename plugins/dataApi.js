@@ -7,6 +7,7 @@ export default function({ $config }, inject){
     }
     inject('dataApi', {
         getHome,
+		getMeetup,
         getReviewsByHomeId,
         getUserByHomeId,
         getHomesByLocation,
@@ -16,6 +17,14 @@ export default function({ $config }, inject){
     async function getHome(homeId){
         try {
         return unWrap(await fetch(`https://${$config.algolia.appId}-dsn.algolia.net/1/indexes/homes/${homeId}`, { headers }))        
+        } catch(error){
+            return getErrorResponse(error)
+        }
+    }
+
+	async function getMeetup(meetupId){
+        try {
+        return unWrap(await fetch(`https://${$config.algolia.appId}-dsn.algolia.net/1/indexes/meetups/${meetupId}`, { headers }))        
         } catch(error){
             return getErrorResponse(error)
         }

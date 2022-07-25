@@ -1,7 +1,7 @@
 {
   "name": "meetup-market",
   "scripts": {
-    "dev": "export NODE_OPTIONS=--openssl-legacy-provider && nuxt",
+	"dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start"
   },

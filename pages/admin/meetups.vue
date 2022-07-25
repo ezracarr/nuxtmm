@@ -4,7 +4,7 @@
     <button class="text-red-800" @click="deleteMeetup(meetup.objectID)">Delete</button><br/>
 </span>
 
-<h2 class="text-xl bold">Add a Meetup</h2>
+<h2 class="text-xl bold">Add a Meetups</h2>
 <form class="form" @submit.prevent="onSubmit">
     
     Images:<br/>
@@ -13,9 +13,9 @@
   <ImageUploader @file-uploaded="imageUpdated($event, 2)"/>
   <ImageUploader @file-uploaded="imageUpdated($event, 3)"/>
   <ImageUploader @file-uploaded="imageUpdated($event, 4)"/>
-    Title: <br/>
+    TITLE: <br/>
     <input type='text' v-model="meetup.title" class="w-60"/><br/>
-    Description<br/>
+    Descriptionss<br/>
     <textarea v-model="meetup.description" class="w-104"></textarea><br/>
     Note<br/>
     <textarea v-model="meetup.note" class="w-104"></textarea><br/>
@@ -31,7 +31,14 @@
     <input type='text' v-model="meetup.paymentLinks[2]" class="w-26"/>
     <input type='text' v-model="meetup.paymentLinks[3]" class="w-26"/>
     <input type='text' v-model="meetup.paymentLinks[4]" class="w-26"/>
-
+	<br/>
+	External community links<br/>
+    <input type='text' v-model="meetup.externalLinks[0]" class="w-26"/>
+    <input type='text' v-model="meetup.externalLinks[1]" class="w-26"/>
+    <input type='text' v-model="meetup.externalLinks[2]" class="w-26"/>
+    <input type='text' v-model="meetup.externalLinks[3]" class="w-26"/>
+    <input type='text' v-model="meetup.externalLinks[4]" class="w-26"/>
+	<br/>
     Price Per Event<br/>
     <input type='number' v-model="meetup.pricePerEvent" class="w-14"/><br/>
     Members / Products / Transactions / Events<br/>
@@ -68,6 +75,7 @@ export default {
                 transactions: '',
                 features: ['', '', '', '', ''],
                 paymentLinks : ['', '', '', '', ''],
+				externalLinks : ['', '', '', '', ''],
                 location: {
                     address: '',
                     city: '',
@@ -132,7 +140,15 @@ export default {
                 objectID: response.json.meetupId,
             })
         }
-    }
+    },
+	// async asyncData({ query, $dataApi }){
+	// 	console.log('***************************************query', query.id)
+	// 	const data = await $dataApi.getMeetup(query.meetupId)
+	// 	console.log('***************************************data', data)
+	// 	return {
+	// 		meetup: data.json.hits,
+	// 	}
+	// }
 }
 </script>
 <style scoped>
