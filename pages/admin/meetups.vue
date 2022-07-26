@@ -128,7 +128,6 @@ export default {
             return parts.find(part => part.types.includes(type))
         },
         async onSubmit(){     
-			console.log(this.meetup)      
             const response = await unWrap(await fetch('/api/meetups', {
                 method: 'POST',
                 body: JSON.stringify(this.meetup),
@@ -136,7 +135,6 @@ export default {
                     'Content-Type': 'application/json',
                 }
             }))
-			console.log(response)
             this.meetupList.push({
                 title: this.meetup.title,
                 objectID: response.json.meetupId,
@@ -144,9 +142,7 @@ export default {
         }
     },
 	// async asyncData({ query, $dataApi }){
-	// 	console.log('***************************************query', query.id)
 	// 	const data = await $dataApi.getMeetup(query.meetupId)
-	// 	console.log('***************************************data', data)
 	// 	return {
 	// 		meetup: data.json.hits,
 	// 	}

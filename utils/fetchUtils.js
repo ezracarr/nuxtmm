@@ -1,5 +1,4 @@
 export async function unWrap(response){
-	console.log('response in Unwrap', response)
     const json = await response.json()
     const { ok, status, statusText } = response
     return {
