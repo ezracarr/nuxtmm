@@ -25,6 +25,20 @@
     <input type='text' v-model="event.features[2]" class="w-26"/>
     <input type='text' v-model="event.features[3]" class="w-26"/>
     <input type='text' v-model="event.features[4]" class="w-26"/><br/>
+	    Payment links<br/>
+    <input type='text' v-model="event.paymentLinks[0]" class="w-26"/>
+    <input type='text' v-model="event.paymentLinks[1]" class="w-26"/>
+    <input type='text' v-model="event.paymentLinks[2]" class="w-26"/>
+    <input type='text' v-model="event.paymentLinks[3]" class="w-26"/>
+    <input type='text' v-model="event.paymentLinks[4]" class="w-26"/>
+	<br/>
+	External community links<br/>
+    <input type='text' v-model="event.externalLinks[0]" class="w-26"/>
+    <input type='text' v-model="event.externalLinks[1]" class="w-26"/>
+    <input type='text' v-model="event.externalLinks[2]" class="w-26"/>
+    <input type='text' v-model="event.externalLinks[3]" class="w-26"/>
+    <input type='text' v-model="event.externalLinks[4]" class="w-26"/>
+	<br/>
     <input type='text' v-model="event.meetups" class="w-14"/>
     Price Per Event<br/>
     <input type='number' v-model="event.pricePerEvent" class="w-14"/><br/>
@@ -39,7 +53,22 @@
     State: <input type='text' v-model="event.location.state" class="w-26"/><br/>
     Postal Code: <input type='text' v-model="event.location.postalCode" class="w-26"/><br/>
     Country: <input type='text' v-model="event.location.country" class="w-26"/><br/>
-    
+	Date of event<br/>
+	<date-picker
+     v-for="(range, index) in event.availabilityRanges"
+     :key="index"
+     v-model="event.availabilityRanges[index]"
+     is-range
+     timezone="UTC"
+     :modelConfig="{ timeAdjust: '00:00:00'}"
+    >
+    <template v-slot="{ inputValue, inputEvents}">
+        <input :value="inputValue.start" v-on="inputEvents.start"/>
+        to
+        <input :value="inputValue.end" v-on="inputEvents.end"/><br/>
+    </template>
+
+    </date-picker>
     <button class="border px-4 py-2 border-gray-400">Add</button>
 </form>
 </div>
@@ -59,6 +88,8 @@ export default {
                 products: '',
                 meetups: ['', '', '', '', ''],
                 features: ['', '', '', '', ''],
+				paymentLinks : ['', '', '', '', ''],
+				externalLinks : ['', '', '', '', ''],
                 location: {
                     address: '',
                     city: '',
@@ -70,6 +101,9 @@ export default {
                     lat: '',
                     lng: '',
                 },
+				availabilityRanges:[{
+                    start: '', end: '',
+                }],
                 images: [],
             }
         }

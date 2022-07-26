@@ -15,7 +15,7 @@
   <ImageUploader @file-uploaded="imageUpdated($event, 4)"/>
     TITLE: <br/>
     <input type='text' v-model="meetup.title" class="w-60"/><br/>
-    Descriptionss<br/>
+    Description<br/>
     <textarea v-model="meetup.description" class="w-104"></textarea><br/>
     Note<br/>
     <textarea v-model="meetup.note" class="w-104"></textarea><br/>
@@ -46,7 +46,7 @@
     <input type='number' v-model="meetup.products" class="w-14"/>
     <input type='number' v-model="meetup.transactions" class="w-14"/>
     <input type='number' v-model="meetup.events" class="w-14"/><br/>
-
+ 	Location<br/>
     <input type='text' ref='locationSelector' autocomplete='off' placeholder='Select a location' @changed='changed'/><br/>
     Address: <input type='text' v-model="meetup.location.address" class="w-60"/><br/>
     City: <input type='text' v-model="meetup.location.city" class="w-26"/><br/>
@@ -127,7 +127,8 @@ export default {
         getAddressPart(parts, type){
             return parts.find(part => part.types.includes(type))
         },
-        async onSubmit(){           
+        async onSubmit(){     
+			console.log(this.meetup)      
             const response = await unWrap(await fetch('/api/meetups', {
                 method: 'POST',
                 body: JSON.stringify(this.meetup),
@@ -135,6 +136,7 @@ export default {
                     'Content-Type': 'application/json',
                 }
             }))
+			console.log(response)
             this.meetupList.push({
                 title: this.meetup.title,
                 objectID: response.json.meetupId,
