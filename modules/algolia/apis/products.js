@@ -33,7 +33,6 @@ export default (algoliaConfig) => {
                     body: JSON.stringify(payload),
                 })
                 const unwrappedNewProduct = unWrap(newProduct)
-                console.log('*******unwrappedNewProduct******', unwrappedNewProduct)
                 await assignProduct(unwrappedNewProduct.json.meetupId, productId)      
                 return unwrappedNewProduct
             } catch(error){

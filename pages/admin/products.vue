@@ -102,7 +102,6 @@ export default {
                     'Content-Type': 'application/json',
                 }
             }))
-			console.log('response', response)
             this.productList.push({
                 title: this.product.title,
                 objectID: response.json.productId,
