@@ -66,7 +66,7 @@ export default {
     privateRuntimeConfig:{
         algolia: {
             appId: process.env.ALGOLIA_APP_ID,
-            key: process.env.ALGOLIA_API_KEY,
+            key: process.env.ALGOLIA_API_PRIVATE_KEY,
         },
         cloudinary: {
             apiSecret: process.env.CLOUDINARY_API_SECRET

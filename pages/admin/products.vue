@@ -25,6 +25,22 @@
     <input type='text' v-model="product.features[2]" class="w-26"/>
     <input type='text' v-model="product.features[3]" class="w-26"/>
     <input type='text' v-model="product.features[4]" class="w-26"/><br/>
+	Payment links<br/>
+    <input type='text' v-model="product.paymentLinks[0]" class="w-26"/>
+    <input type='text' v-model="product.paymentLinks[1]" class="w-26"/>
+    <input type='text' v-model="product.paymentLinks[2]" class="w-26"/>
+    <input type='text' v-model="product.paymentLinks[3]" class="w-26"/>
+    <input type='text' v-model="product.paymentLinks[4]" class="w-26"/>
+	<br/>
+	External links<br/>
+    <input type='text' v-model="product.externalLinks[0]" class="w-26"/>
+    <input type='text' v-model="product.externalLinks[1]" class="w-26"/>
+    <input type='text' v-model="product.externalLinks[2]" class="w-26"/>
+    <input type='text' v-model="product.externalLinks[3]" class="w-26"/>
+    <input type='text' v-model="product.externalLinks[4]" class="w-26"/>
+	<br/>
+	Meetups
+	<br/>
     <input type='number' v-model="product.meetups" class="w-14"/>
     Price Per Product<br/>
     <input type='number' v-model="product.pricePerProduct" class="w-14"/><br/>
@@ -53,10 +69,8 @@ export default {
                 transactions: '',
                 meetups: ['','','',''],
                 features: ['', '', '', '', ''],
-                _geoloc: {
-                    lat: '',
-                    lng: '',
-                },
+				paymentLinks : ['', '', '', '', ''],
+				externalLinks : ['', '', '', '', ''],
                 images: [],
             }
         }
@@ -88,6 +102,7 @@ export default {
                     'Content-Type': 'application/json',
                 }
             }))
+			console.log('response', response)
             this.productList.push({
                 title: this.product.title,
                 objectID: response.json.productId,

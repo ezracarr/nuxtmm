@@ -4,7 +4,7 @@
     <button class="text-red-800" @click="deleteMeetup(meetup.objectID)">Delete</button><br/>
 </span>
 
-<h2 class="text-xl bold">Add a Meetup</h2>
+<h2 class="text-xl bold">Add a Meetups</h2>
 <form class="form" @submit.prevent="onSubmit">
     
     Images:<br/>
@@ -13,7 +13,7 @@
   <ImageUploader @file-uploaded="imageUpdated($event, 2)"/>
   <ImageUploader @file-uploaded="imageUpdated($event, 3)"/>
   <ImageUploader @file-uploaded="imageUpdated($event, 4)"/>
-    Title: <br/>
+    TITLE: <br/>
     <input type='text' v-model="meetup.title" class="w-60"/><br/>
     Description<br/>
     <textarea v-model="meetup.description" class="w-104"></textarea><br/>
@@ -31,7 +31,14 @@
     <input type='text' v-model="meetup.paymentLinks[2]" class="w-26"/>
     <input type='text' v-model="meetup.paymentLinks[3]" class="w-26"/>
     <input type='text' v-model="meetup.paymentLinks[4]" class="w-26"/>
-
+	<br/>
+	External community links<br/>
+    <input type='text' v-model="meetup.externalLinks[0]" class="w-26"/>
+    <input type='text' v-model="meetup.externalLinks[1]" class="w-26"/>
+    <input type='text' v-model="meetup.externalLinks[2]" class="w-26"/>
+    <input type='text' v-model="meetup.externalLinks[3]" class="w-26"/>
+    <input type='text' v-model="meetup.externalLinks[4]" class="w-26"/>
+	<br/>
     Price Per Event<br/>
     <input type='number' v-model="meetup.pricePerEvent" class="w-14"/><br/>
     Members / Products / Transactions / Events<br/>
@@ -39,7 +46,7 @@
     <input type='number' v-model="meetup.products" class="w-14"/>
     <input type='number' v-model="meetup.transactions" class="w-14"/>
     <input type='number' v-model="meetup.events" class="w-14"/><br/>
-
+ 	Location<br/>
     <input type='text' ref='locationSelector' autocomplete='off' placeholder='Select a location' @changed='changed'/><br/>
     Address: <input type='text' v-model="meetup.location.address" class="w-60"/><br/>
     City: <input type='text' v-model="meetup.location.city" class="w-26"/><br/>
@@ -68,6 +75,7 @@ export default {
                 transactions: '',
                 features: ['', '', '', '', ''],
                 paymentLinks : ['', '', '', '', ''],
+				externalLinks : ['', '', '', '', ''],
                 location: {
                     address: '',
                     city: '',
@@ -119,7 +127,8 @@ export default {
         getAddressPart(parts, type){
             return parts.find(part => part.types.includes(type))
         },
-        async onSubmit(){           
+        async onSubmit(){     
+			console.log(this.meetup)      
             const response = await unWrap(await fetch('/api/meetups', {
                 method: 'POST',
                 body: JSON.stringify(this.meetup),
@@ -127,12 +136,21 @@ export default {
                     'Content-Type': 'application/json',
                 }
             }))
+			console.log(response)
             this.meetupList.push({
                 title: this.meetup.title,
                 objectID: response.json.meetupId,
             })
         }
-    }
+    },
+	// async asyncData({ query, $dataApi }){
+	// 	console.log('***************************************query', query.id)
+	// 	const data = await $dataApi.getMeetup(query.meetupId)
+	// 	console.log('***************************************data', data)
+	// 	return {
+	// 		meetup: data.json.hits,
+	// 	}
+	// }
 }
 </script>
 <style scoped>

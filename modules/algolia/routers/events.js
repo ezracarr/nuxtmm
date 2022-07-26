@@ -48,7 +48,8 @@ export default (apis) => {
             res.end()
             return
         }
-        await apis.user.assignEvent(identity, eventId)
+		// this only makes sense when a user that is not one of us is the one making a new event
+        // await apis.user.assignEvent(identity, eventId)
         sendJSON({ eventId }, res)
     }
 }
