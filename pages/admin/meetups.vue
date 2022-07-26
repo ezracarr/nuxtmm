@@ -135,6 +135,7 @@ export default {
                     'Content-Type': 'application/json',
                 }
             }))
+			
             this.meetupList.push({
                 title: this.meetup.title,
                 objectID: response.json.meetupId,
