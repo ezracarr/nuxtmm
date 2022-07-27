@@ -8,10 +8,13 @@ export default function({ $config }, inject){
     inject('dataApi', {
         getHome,
 		getMeetup,
+		getProduct,
+		getEvent,
         getReviewsByHomeId,
         getUserByHomeId,
         getHomesByLocation,
         getHomes,
+		getMeetups,
     })
 
     async function getHome(homeId){
@@ -25,6 +28,22 @@ export default function({ $config }, inject){
 	async function getMeetup(meetupId){
         try {
         return unWrap(await fetch(`https://${$config.algolia.appId}-dsn.algolia.net/1/indexes/meetups/${meetupId}`, { headers }))        
+        } catch(error){
+            return getErrorResponse(error)
+        }
+    }
+
+	async function getEvent(eventId){
+        try {
+        return unWrap(await fetch(`https://${$config.algolia.appId}-dsn.algolia.net/1/indexes/events/${eventId}`, { headers }))        
+        } catch(error){
+            return getErrorResponse(error)
+        }
+    }
+
+	async function getProduct(productId){
+        try {
+        return unWrap(await fetch(`https://${$config.algolia.appId}-dsn.algolia.net/1/indexes/products/${productId}`, { headers }))        
         } catch(error){
             return getErrorResponse(error)
         }
@@ -90,6 +109,20 @@ export default function({ $config }, inject){
                 method: 'POST',
                 body: JSON.stringify({                    
                     hitsPerPage: 3,
+                    attributesToHighlight: [],
+                })
+            }))
+        } catch(error){
+            return getErrorResponse(error)
+        }
+    }
+	async function getMeetups(){
+        try {
+            return unWrap(await fetch(`https://${$config.algolia.appId}-dsn.algolia.net/1/indexes/meetups/query`, {
+                headers,
+                method: 'POST',
+                body: JSON.stringify({                    
+                    hitsPerPage: 10,
                     attributesToHighlight: [],
                 })
             }))

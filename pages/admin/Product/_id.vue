@@ -1,18 +1,16 @@
 <template>
 <div>
-<nuxt-link :to="`/admin/product/${product.objectID}/`" v-for="product in productList" :key="product.objectID">{{ product.title }}:
-    <!-- <button class="text-red-800" @click="deleteMeetup(product.objectID)">Delete</button><br/> -->
-</nuxt-link>
-<h2 class="text-xl bold">Add a product</h2>
+
+<h2 class="text-xl bold">Edit a products</h2>
 <form class="form" @submit.prevent="onSubmit">
     
-    Images:<br/>
+    Add Images:<br/>
   <ImageUploader @file-uploaded="imageUpdated($event, 0)"/>
   <ImageUploader @file-uploaded="imageUpdated($event, 1)"/>
   <ImageUploader @file-uploaded="imageUpdated($event, 2)"/>
   <ImageUploader @file-uploaded="imageUpdated($event, 3)"/>
   <ImageUploader @file-uploaded="imageUpdated($event, 4)"/>
-    Title: <br/>
+    TITLE: <br/>
     <input type='text' v-model="product.title" class="w-60"/><br/>
     Description<br/>
     <textarea v-model="product.description" class="w-104"></textarea><br/>
@@ -24,87 +22,85 @@
     <input type='text' v-model="product.features[2]" class="w-26"/>
     <input type='text' v-model="product.features[3]" class="w-26"/>
     <input type='text' v-model="product.features[4]" class="w-26"/><br/>
-	Payment links<br/>
+    Payment links<br/>
     <input type='text' v-model="product.paymentLinks[0]" class="w-26"/>
     <input type='text' v-model="product.paymentLinks[1]" class="w-26"/>
     <input type='text' v-model="product.paymentLinks[2]" class="w-26"/>
     <input type='text' v-model="product.paymentLinks[3]" class="w-26"/>
     <input type='text' v-model="product.paymentLinks[4]" class="w-26"/>
 	<br/>
-	External links<br/>
+	External community links<br/>
     <input type='text' v-model="product.externalLinks[0]" class="w-26"/>
     <input type='text' v-model="product.externalLinks[1]" class="w-26"/>
     <input type='text' v-model="product.externalLinks[2]" class="w-26"/>
     <input type='text' v-model="product.externalLinks[3]" class="w-26"/>
     <input type='text' v-model="product.externalLinks[4]" class="w-26"/>
 	<br/>
-	Meetups
-	<br/>
-    <input type='number' v-model="product.meetups" class="w-14"/>
-    Price Per Product<br/>
+    Price Per Event<br/>
     <input type='number' v-model="product.pricePerProduct" class="w-14"/><br/>
-    Members / Transactions / Events / Meetups <br/>
+    Members / Products / Transactions / Events<br/>
     <input type='number' v-model="product.members" class="w-14"/>
     <input type='number' v-model="product.transactions" class="w-14"/>
     <input type='number' v-model="product.events" class="w-14"/><br/>
-    
-    <button class="border px-4 py-2 border-gray-400">Add</button>
+    <button class="border px-4 py-2 border-gray-400">Update</button>
 </form>
 </div>
 </template>
 <script>
 import { unWrap } from '~/utils/fetchUtils'
 export default {
-    data(){
+	methods:{
+		async onSubmit(e){     
+			const response = await unWrap(await fetch('/api/products', {
+				method: 'PUT',
+				body: JSON.stringify(this.product),
+				headers: {
+					'Content-Type': 'application/json',
+				}
+			}))	
+		},
+		imageUpdated(imageUrl,index){
+			this.product.images[index] = imageUrl
+		},
+	},
+	data(){
         return {
-            productList: [],
             product: {
+				objectId: '',
                 title: '',
                 description: '',
                 note: '',
-                pricePerProduct: '',
+                pricePerNight: '',
                 members: '',
+                products: '',
                 events: '',
                 transactions: '',
-                meetups: ['','','',''],
                 features: ['', '', '', '', ''],
-				paymentLinks : ['', '', '', '', ''],
+                paymentLinks : ['', '', '', '', ''],
 				externalLinks : ['', '', '', '', ''],
+                location: {
+                    address: '',
+                    city: '',
+                    state: '',
+                    postalCode: '',
+                    country: '',
+                },
+                _geoloc: {
+                    lat: '',
+                    lng: '',
+                },
                 images: [],
             }
         }
     },
-    mounted(){
-        this.setproductsList()
-    },
-    methods:{
-        async deleteProduct(productId){
-            await fetch(`/api/products/${productId}`, {
-                method: 'DELETE',
-            })
-            const index = this.productList.findIndex(obj => obj.objectID == productId)
-            this.productList.splice(index, 1)
-        },
-        async setproductsList(){
-            // ToDO - make api call not dependant on user...just get all of them. Also be able to subset by meetupId
-            // this.productList = (await unWrap(await fetch('/api/products/'))).json
-            this.productList = (await unWrap(await fetch('/api/products/user/'))).json
-        },
-        imageUpdated(imageUrl,index){
-            this.product.images[index] = imageUrl
-        },
-        async onSubmit(){           
-            const response = await unWrap(await fetch('/api/products', {
-                method: 'POST',
-                body: JSON.stringify(this.product),
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            }))
-            this.productList.push({
-                title: this.product.title,
-                objectID: response.json.productId,
-            })
+	async asyncData({ params, $dataApi, error }){    
+        const responses = await Promise.all([
+            $dataApi.getProduct(params.id),
+        ])
+        const badResponse = responses.find((response) => !response.ok)
+        if(badResponse) return error({ statusCode: badResponse.status, message: badResponse.statusText})
+        return {
+            product: responses[0].json,
         }
     }
 }
