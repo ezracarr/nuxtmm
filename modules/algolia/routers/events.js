@@ -11,7 +11,13 @@ export default (apis) => {
         if(req.method == 'GET' && req.url == '/user/'){
             return await getEventsByUser(req.identity.id, res)
         }
-
+		if(req.method == 'PUT'){
+            if(hasBadBody(req)){
+                return rejectHitBadRequest(res)
+            }
+            await updateEvent(req.identity, req.body, res)
+            return
+        }
         if(req.method == 'POST'){
             if(hasBadBody(req)){
                 return rejectHitBadRequest(res)
@@ -51,5 +57,24 @@ export default (apis) => {
 		// this only makes sense when a user that is not one of us is the one making a new event
         // await apis.user.assignEvent(identity, eventId)
         sendJSON({ eventId }, res)
+    }
+	async function updateEvent(identity, body, res){
+		
+		const eventObjectId = body.objectID
+        const payload = {
+            ...body,
+            reviewCount: 0,
+            reviewValue: 0,
+            userId: identity.id,
+        }
+        const resp = await apis.events.create(eventObjectId, payload)
+        if(!resp.ok){
+            res.statusCode = 500
+            res.end()
+            return
+        }
+        // this only makes sense when a user that is not one of us is the one making a new meetup
+        // await apis.user.assignMeetup(identity, meetupId)
+        sendJSON({ eventObjectId }, res)
     }
 }

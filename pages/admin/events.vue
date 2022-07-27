@@ -1,8 +1,9 @@
 <template>
 <div>
-<span v-for="event in eventList" :key="event.objectID">{{ event.title }}:
-    <button class="text-red-800" @click="deletEvent(event.objectID)">Delete</button><br/>
-</span>
+<nuxt-link :to="`/admin/event/${event.objectID}/`" v-for="event in eventList" :key="event.objectID">{{ event.title }}:
+    <!-- <button class="text-red-800" @click="deleteEvent(event.objectID)">Delete</button><br/> -->
+	<br/>
+</nuxt-link>
 
 <h2 class="text-xl bold">Add a event</h2>
 <form class="form" @submit.prevent="onSubmit">
@@ -144,7 +145,7 @@ export default {
         getAddressPart(parts, type){
             return parts.find(part => part.types.includes(type))
         },
-        async onSubmit(){           
+        async onSubmit(){ 
             const response = await unWrap(await fetch('/api/events', {
                 method: 'POST',
                 body: JSON.stringify(this.event),

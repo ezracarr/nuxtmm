@@ -15,6 +15,13 @@ export default (apis) => {
         if(req.method == 'GET' && req.url == '/meetup/'){
             return await getProductsByMeetup(req.identity.id, res)
         }
+		if(req.method == 'PUT'){
+            if(hasBadBody(req)){
+                return rejectHitBadRequest(res)
+            }
+            await updateProduct(req.identity, req.body, res)
+            return
+        }
 
         if(req.method == 'POST'){
             if(hasBadBody(req)){
@@ -61,5 +68,23 @@ export default (apis) => {
         // await apis.user.assignProduct(identity, productId)
         await apis.meetup.assignProduct(identity, productId)
         sendJSON({ productId }, res)
+    }
+	async function updateProduct(identity, body, res){
+		const productObjectId = body.objectID
+        const payload = {
+            ...body,
+            reviewCount: 0,
+            reviewValue: 0,
+            userId: identity.id,
+        }
+        const resp = await apis.products.create(productObjectId, payload)
+        if(!resp.ok){
+            res.statusCode = 500
+            res.end()
+            return
+        }
+        // this only makes sense when a user that is not one of us is the one making a new meetup
+        // await apis.user.assignMeetup(identity, meetupId)
+        sendJSON({ productObjectId }, res)
     }
 }

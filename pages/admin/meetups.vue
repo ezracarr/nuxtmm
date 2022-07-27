@@ -1,7 +1,7 @@
 <template>
 <div>
 <nuxt-link :to="`/admin/meetup/${meetup.objectID}/`" v-for="meetup in meetupList" :key="meetup.objectID">{{ meetup.title }}:
-    <button class="text-red-800" @click="deleteMeetup(meetup.objectID)">Delete</button><br/>
+    <!-- <button class="text-red-800" @click="deleteMeetup(meetup.objectID)">Delete</button><br/> -->
 </nuxt-link>
 
 <h2 class="text-xl bold">Add a Meetups</h2>
