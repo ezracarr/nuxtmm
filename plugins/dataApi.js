@@ -14,6 +14,7 @@ export default function({ $config }, inject){
         getUserByHomeId,
         getHomesByLocation,
         getHomes,
+		getProducts,
 		getMeetups,
     })
 
@@ -105,6 +106,20 @@ export default function({ $config }, inject){
     async function getHomes(){
         try {
             return unWrap(await fetch(`https://${$config.algolia.appId}-dsn.algolia.net/1/indexes/homes/query`, {
+                headers,
+                method: 'POST',
+                body: JSON.stringify({                    
+                    hitsPerPage: 3,
+                    attributesToHighlight: [],
+                })
+            }))
+        } catch(error){
+            return getErrorResponse(error)
+        }
+    }
+	async function getProducts(){
+        try {
+            return unWrap(await fetch(`https://${$config.algolia.appId}-dsn.algolia.net/1/indexes/products/query`, {
                 headers,
                 method: 'POST',
                 body: JSON.stringify({                    

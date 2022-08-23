@@ -5,10 +5,10 @@ body {
   @apply font-roboto;
 }
 
-$cities: paris, new-york, london, dubai, san-francisco, cancun;
-@each $city in $cities {
-  .city-#{$city} {
-    background-image: url(/images/photos/#{$city}.jpg);
+$products: banana-bread, bread, nugget, cookie;
+@each $product in $products {
+  .product-#{$product} {
+    background-image: url(/images/photos/#{$product}.jpg);
   }
 }
 
