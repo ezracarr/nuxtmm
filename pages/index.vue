@@ -1,12 +1,12 @@
 <template>
 <div class="app">
     <SectionRecentlyAdded class="app-background-grey" :homes="homes" />
-    <SectionPremiumListings />
+    <SectionPremiumListings :listings="products"/>
     <SectionMore />
     <div class="app-container">
       <div class="app-hero">
         <h2>
-          - Settle in somewhere new. Discover stays to live, work, or just relax.
+          - Find your people. Plug in to the digital frontier.  Build the future.
         </h2>
       </div>
     </div>
@@ -27,7 +27,8 @@ export default {
     },
     async asyncData({$dataApi}){
         return {
-            homes:(await $dataApi.getHomes()).json.hits
+            homes:(await $dataApi.getHomes()).json.hits,
+			products:(await $dataApi.getProducts()).json.hits
         }
     }
 }

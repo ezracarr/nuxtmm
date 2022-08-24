@@ -3,6 +3,7 @@
     <PropertyGallery :images="home.images"/>
     <PropertyDetails :home="home"/>
     <PropertyDescription :home="home"/>
+	<SectionPremiumListings :linkToStore="true" />
     <PropertyMap :home="home"/>
     <PropertyReviews :reviews="reviews"/>
     <PropertyHost :user="user"/>    
