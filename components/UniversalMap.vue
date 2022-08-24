@@ -1,10 +1,7 @@
 <template>
 <div>
     <div class="app-wrapper app-padded-vertical">
-        <h2 class="app-subtitle">Meetups Market</h2>
-        <p class="app-description">
-			Where bitcoin culture and commerce meet
-        </p>
+        <h2 class="app-subtitle">Where bitcoin culture and commerce meet</h2> 
         <div ref="map" class="app-map"></div>
     </div>
 </div>

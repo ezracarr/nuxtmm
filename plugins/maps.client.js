@@ -67,6 +67,12 @@ export default function(context, inject){
                 position,
                 clickable: false,
             })
+			// marker.addListener("click", () => {
+			// navigate to marker.link
+			// 	infoWindow.close();
+			// 	infoWindow.setContent(marker.getTitle());
+			// 	infoWindow.open(marker.getMap(), marker);
+			//   });
             marker.setMap(map)
             return
         }
