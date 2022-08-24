@@ -6,6 +6,7 @@ export default function(context, inject){
     inject('maps', {
         showMap,
         makeAutoComplete,
+		showUniversalMap,
     })
 
 
@@ -40,7 +41,7 @@ export default function(context, inject){
         })
     }
 
-    function showMap(canvas, lat, lng, markers){
+	function showMap(canvas, lat, lng, markers){
         if(!isLoaded){
             waiting.push({
                 fn: showMap,
@@ -82,6 +83,61 @@ export default function(context, inject){
                 icon: 'https://maps.gstatic.com/mapfiles/transparent.png',
                 clickable: false,
             })
+            marker.setMap(map)
+            bounds.extend(position)
+        })
+
+        map.fitBounds(bounds)
+        
+    }
+
+    function showUniversalMap(canvas, lat, lng, markers){
+        if(!isLoaded){
+            waiting.push({
+                fn: showUniversalMap,
+                arguments,
+            })
+            return
+        }
+        const mapOptions = {
+            zoom: 4,
+            center: new window.google.maps.LatLng(lat, lng),
+            disableDefaultUI: true,
+            zoomControl: true,
+            styles:[{
+                featureType: 'poi.business',
+                elementType: 'labels.icon',
+                stylers:[{ visibility: 'off' }]
+            }]
+        }
+        const map = new window.google.maps.Map(canvas, mapOptions)
+        if(!markers){
+            const position = new window.google.maps.LatLng(lat, lng)
+            const marker = new window.google.maps.Marker({ 
+                position,
+                clickable: false,
+            })
+            marker.setMap(map)
+            return
+        }
+		console.log("HERE")
+        // const bounds = new window.google.maps.LatLngBounds({north: northLat, south: southLat, west: -180, east: 180})
+		const bounds = new window.google.maps.LatLngBounds()
+		console.log("HERE2")
+		console.log(markers)
+        markers.forEach((home) => {
+            const position = new window.google.maps.LatLng(home.lat, home.lng)
+			console.log(position.lat(), position.lng())
+            const marker = new window.google.maps.Marker({ 
+                position,
+                label: {
+                    text: `$${home.pricePerNight}`,
+                    className: `marker home-${home.id}`,
+                },
+                icon: 'https://maps.gstatic.com/mapfiles/transparent.png',
+                clickable: false,
+            })
+			console.log(marker)
             marker.setMap(map)
             bounds.extend(position)
         })
